@@ -16,20 +16,13 @@ screen=pygame.display.set_mode((500,500), DOUBLEBUF)
 pygame.display.set_caption("Mine Sweeper")
 
 #쓸데없는거
-a=[[0]*10 for i in range(10)]
-num=1
+mine_array=[[0]*10 for i in range(10)]
+mine_array[4][8]=1
 for i in range (0,10):
     for j in range (0,10):
-        a[i][j]=num
-        num=num+1
-for i in range (0,10):
-    for j in range (0,10):
-        print(a[i][j], end=' ')
+        print(mine_array[i][j], end=' ')
     print("\n")
         
-#def mouse_coordinate_to_single_coordinate(mousex, mousey):
-    
-    
 
 while True:
     for event in pygame.event.get():
@@ -40,13 +33,20 @@ while True:
         if event.type==MOUSEBUTTONUP:
             mousex, mousey = pygame.mouse.get_pos()
             print(mousex,mousey)
+            y = mousex//50
+            x = mousey//50
+            print(x,y)
+            mine_array[x][y]=1
     screen.fill(COLOUR)
 
     for i in range (0,10):
         for j in range (0,10):
-            screen.blit(blank,(i*50,j*50))
+            if mine_array[j][i]==0:
+                screen.blit(blank,(i*50,j*50))
+            elif mine_array[j][i]==1:
+                screen.blit(blank_clicked,(i*50,j*50))
+            
     screen.blit(mine,(250,350))
-    screen.blit(blank_clicked,(150,250))
     screen.blit(blank_flag,(100,100))
 
     pygame.display.flip()

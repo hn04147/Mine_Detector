@@ -15,13 +15,8 @@ pygame.init()
 screen=pygame.display.set_mode((500,500), DOUBLEBUF)
 pygame.display.set_caption("Mine Sweeper")
 
-#쓸데없는거
-mine_array=[[0]*10 for i in range(10)]
-for i in range (0,10):
-    for j in range (0,10):
-        print(mine_array[i][j], end=' ')
-    print("\n")
-        
+#0부터 시작하는 mine_array 0으로 초기화
+mine_array=[[0]*10 for i in range(10)]       
 
 while True:
     for event in pygame.event.get():
@@ -39,6 +34,7 @@ while True:
             mine_array[x][y]=1
 
             #print array
+            print("mine_array:")
             for i in range (0,10):
                 for j in range (0,10):
                     print(mine_array[i][j], end=' ')
@@ -46,6 +42,7 @@ while True:
             
     screen.fill(COLOUR)
 
+    #우선 모든 칸을 blank칸 이미지으로 출력
     for i in range (0,10):
         for j in range (0,10):
             if mine_array[j][i]==0:

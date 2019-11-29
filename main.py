@@ -17,7 +17,6 @@ pygame.display.set_caption("Mine Sweeper")
 
 #쓸데없는거
 mine_array=[[0]*10 for i in range(10)]
-mine_array[4][8]=1
 for i in range (0,10):
     for j in range (0,10):
         print(mine_array[i][j], end=' ')

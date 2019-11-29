@@ -7,6 +7,7 @@ TARGET_FPS=30
 clock = pygame.time.Clock()
 
 WHITE=(255,255,255)
+COLOUR=(211,211,211)
 
 mine=pygame.image.load('mine.jpg')
 
@@ -21,7 +22,7 @@ while True:
             pygame.quit()
             sys.exit()
 
-    screen.fill(WHITE)
+    screen.fill(COLOUR)
 
     for i in range (0,10):
         for j in range (0,10):

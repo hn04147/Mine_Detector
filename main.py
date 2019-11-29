@@ -1,6 +1,7 @@
 import sys
 import pygame
 from pygame.locals import *
+from image import *
 
 TARGET_FPS=30
 
@@ -8,9 +9,6 @@ clock = pygame.time.Clock()
 
 WHITE=(255,255,255)
 COLOUR=(211,211,211)
-
-mine=pygame.image.load('mine.jpg')
-
 
 pygame.init()
 screen=pygame.display.set_mode((500,600), DOUBLEBUF)
@@ -26,7 +24,10 @@ while True:
 
     for i in range (0,10):
         for j in range (0,10):
-            screen.blit(mine,(i*50,j*50+100))
+            screen.blit(blank,(i*50,j*50+100))
+    screen.blit(mine,(250,450))
+    screen.blit(blank_clicked,(150,350))
+    screen.blit(blank_flag,(100,200))
 
     pygame.display.flip()
     clock.tick(TARGET_FPS)

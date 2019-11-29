@@ -1,2 +1,2 @@
-그냥 읽어주세용
-읽으삼
+read me please
+just

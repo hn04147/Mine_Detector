@@ -35,7 +35,7 @@ while True:
             #마우스 좌표와 실제 좌표의 x,y 값이 반대로여서 x,y를 반대로 설
             y = mousex//50
             x = mousey//50
-            print("x=", x, "y=", y)
+            print("x=", y, "y=", x)
             mine_array[x][y]=1
 
             #print array

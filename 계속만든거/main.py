@@ -43,6 +43,25 @@ while index < MINE_NUM:
         index = index + 1
 
 
+'''def check_blank(int i, int j):
+    
+    if before_click[i][j] == 0:
+        
+        open_blank([i-1][j])
+        if before_click[i-1][j] == 0
+            check_blank([i-1][j])
+
+        open_blank([i+1][j])
+        if before_click[i+1][j] == 0
+            check_blank
+
+        
+            
+        after_click[i][j] = -1
+        check_blank(i-1,j)
+    if before_click[i-1][j] !=0 and'''
+
+
 ################################################################################
         
 #공백 주변에 있는 지뢰의 수를 배열에 입력

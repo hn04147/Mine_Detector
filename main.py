@@ -6,11 +6,12 @@ import random
 
 TARGET_FPS=30
 clock = pygame.time.Clock()
+crashed = True
 
 #global
 MINE_NUM=20
-row = 10
-col = 10
+row = 20
+col = 20
 
 #background color
 WHITE=(255,255,255)
@@ -56,8 +57,9 @@ def open_blank(i, j):
         if i!=0 and j!=0: open_blank(i-1,j-1)  
     elif before_click[i][j] != -1 and after_click[i][j] != -1:
         after_click[i][j] = before_click[i][j]
-    elif before_click[i][j] == -1: after_click[i][j] = 10
-        
+    elif before_click[i][j] == -1:
+        after_click[i][j] = 10
+        crashed = False
 
 
 ################################################################################
@@ -148,13 +150,13 @@ for i in range (1, row-1):
 
 
 
-for i in range (0,row):
+'''for i in range (0,row):
     for j in range (0,col):
         print("%3d"%before_click[i][j],end=' ')
-    print("\n")
+    print("\n")'''
 
 
-while True:
+while crashed:
     for event in pygame.event.get():
         if event.type==QUIT:
             pygame.quit()
@@ -169,7 +171,12 @@ while True:
             print("x=", y, "y=", x)
 
             open_blank(x,y)
-
+        if event.type==KEYDOWN:
+            mousex, mousey = pygame.mouse.get_pos()
+            print("mousex:", mousex, "mousey:", mousey)
+            y = mousex//50
+            x = mousey//50
+            after_click[x][y]=9
             #print array
             '''print("mine_array:")
             for i in range (0,row):
@@ -188,6 +195,8 @@ while True:
                 screen.blit(blank_clicked,(i*50,j*50))
             elif after_click[j][i]==10:
                 screen.blit(mine,(i*50,j*50))
+            elif after_click[j][i]==9:
+                screen.blit(blank_flag,(i*50,j*50))
             elif after_click[j][i]==1:
                 screen.blit(num1, (i*50,j*50))
             elif after_click[j][i]==2:

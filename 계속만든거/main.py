@@ -8,9 +8,9 @@ TARGET_FPS=30
 clock = pygame.time.Clock()
 
 #global
-MINE_NUM=10
-row = 5
-col = 5
+MINE_NUM=20
+row = 10
+col = 10
 
 #background color
 WHITE=(255,255,255)

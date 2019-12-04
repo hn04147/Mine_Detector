@@ -3,10 +3,14 @@ import pygame
 from pygame.locals import *
 from image import *
 import random
+import tkinter
+import tkinter.messagebox
+
 
 TARGET_FPS=30
 clock = pygame.time.Clock()
 crashed = True
+
 
 #global
 MINE_NUM=20
@@ -59,9 +63,13 @@ def open_blank(i, j):
         after_click[i][j] = before_click[i][j]
     elif before_click[i][j] == -1:
         after_click[i][j] = 10
+        gameover()
         crashed = False
 
-
+def gameover():
+    tkinter.messagebox.showinfo("GAME OVER","GAME OVER")
+    
+    
 ################################################################################
         
 #공백 주변에 있는 지뢰의 수를 배열에 입력

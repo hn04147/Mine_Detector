@@ -13,9 +13,12 @@ crashed = True
 
 
 #global
-MINE_NUM=10
+MINE_NUM=2
+
 row = 10
 col = 10
+TOTAL=row*col
+
 
 #background color
 WHITE=(255,255,255)
@@ -37,6 +40,37 @@ after_click=[[0]*(col+2) for i in range(row+2)]
 #지뢰가 있으면 -1, 주변에 지뢰가 있으면 지뢰수 n, 주변에 지뢰가 없으면 0
 #처음엔 0으로 초기화
 before_click=[[0]*(col+2) for i in range(row+2)]
+
+#지뢰와 클릭전 이외의 칸 개수 세기
+def count_open():
+    n_open=0
+    for i in range(0,row):
+        for j in range(0, col):
+            if after_click[i][j] ==1:
+                n_open=n_open+1
+            elif after_click[i][j]==-1:
+                n_open=n_open+1
+            elif after_click[i][j]==2:
+                n_open=n_open+1
+            elif after_click[i][j]==3:
+                n_open=n_open+1
+            elif after_click[i][j]==3:
+                n_open=n_open+1
+            elif after_click[i][j]==4:
+                n_open=n_open+1
+            elif after_click[i][j]==5:
+                n_open=n_open+1
+            elif after_click[i][j]==6:
+                n_open=n_open+1
+            elif after_click[i][j]==7:
+                n_open=n_open+1
+            elif after_click[i][j]==7:
+                n_open=n_open+1
+    print(n_open)
+    if n_open==TOTAL-MINE_NUM:
+        print("success")
+
+        
 
 #지뢰 10개 랜덤으로 배치 0->-1
 def random_mine():
@@ -127,14 +161,20 @@ while crashed:
             y = mousex//50
             x = mousey//50
             print("x=", y, "y=", x)
-
             open_blank(x,y)
+            count_open()
         if event.type==KEYDOWN:
             mousex, mousey = pygame.mouse.get_pos()
             print("mousex:", mousex, "mousey:", mousey)
             y = mousex//50
             x = mousey//50
             after_click[x][y]=9
+            
+
+
+
+
+
             
 
     #이미지 출력

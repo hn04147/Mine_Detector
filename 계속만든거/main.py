@@ -46,6 +46,7 @@ while index < MINE_NUM:
 '''def check_blank(int i, int j):
     
     if before_click[i][j] == 0:
+
         
         open_blank([i-1][j])
         if before_click[i-1][j] == 0
@@ -192,11 +193,11 @@ while True:
                 after_click[x][y] = 8
 
             #print array
-            '''print("mine_array:")
+            print("mine_array:")
             for i in range (0,row):
                 for j in range (0,col):
                     print("%3d"%after_click[i][j], end=' ')
-                print("\n")'''
+                print("\n")
             
     
 

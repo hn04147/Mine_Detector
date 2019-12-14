@@ -142,20 +142,23 @@ while crashed:
             y = mousex//50
             x = mousey//50
             open_blank(x,y)
+            print("opened")
             
-            if check_success()==True:
-                print("success!!!")
-                tkinter.messagebox.showinfo("SUCCESS","SUCCESS")
-                pygame.quit()
-                sys.exit()
-            elif check_success()==False:
-                print("Not Yet")
+            
 
         if event.type==MOUSEBUTTONUP and event.button==3:
             mousex, mousey = pygame.mouse.get_pos()
             y = mousex//50
             x = mousey//50
             after_click[x][y]=9
+
+        if check_success()==True:
+            print("success!!!")
+            crashed = False
+            blit_game()
+            tkinter.messagebox.showinfo("SUCCESS","SUCCESS")
+            pygame.quit()
+            sys.exit()
 
     
     #이미지 출력

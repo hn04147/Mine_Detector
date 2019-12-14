@@ -49,7 +49,6 @@ def check_success():
         for j in range(0, col):
             if after_click[i][j] in mine_num:
                 n_open +=1
-    print(n_open)
     if n_open==TOTAL-MINE_NUM: return True
     else: return False
 
@@ -137,23 +136,23 @@ while crashed:
             pygame.quit()
             sys.exit()
         #when left mouse button up get mouse coordinate
-        if event.type==MOUSEBUTTONUP:
+        if event.type==MOUSEBUTTONUP and event.button==1:
             mousex, mousey = pygame.mouse.get_pos()
-            print("mousex:", mousex, "mousey:", mousey)
             #마우스 좌표와 실제 좌표의 x,y 값이 반대로여서 x,y를 반대로 설
             y = mousex//50
             x = mousey//50
-            print("x=", y, "y=", x)
             open_blank(x,y)
             
             if check_success()==True:
                 print("success!!!")
+                tkinter.messagebox.showinfo("SUCCESS","SUCCESS")
+                pygame.quit()
+                sys.exit()
             elif check_success()==False:
                 print("Not Yet")
 
-        if event.type==KEYDOWN:
+        if event.type==MOUSEBUTTONUP and event.button==3:
             mousex, mousey = pygame.mouse.get_pos()
-            print("mousex:", mousex, "mousey:", mousey)
             y = mousex//50
             x = mousey//50
             after_click[x][y]=9

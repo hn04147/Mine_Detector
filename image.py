@@ -1,3 +1,4 @@
+#hi
 import pygame
 
 blank = pygame.image.load('image/blank.jpg')
